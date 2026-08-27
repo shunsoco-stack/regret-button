@@ -1,0 +1,11 @@
+title = "regret-button source scan"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Dependencies, generated builds, local deployment metadata, and downloaded verification tools are not published source."
+paths = [
+  '''(^|[/\\])(node_modules|\.next|\.git|\.vercel|\.tools|\.cache|coverage|test-results|playwright-report)([/\\]|$)''',
+  '''\.tsbuildinfo$''',
+]
