@@ -15,10 +15,10 @@
 | `npm test` | 6ファイル・157テスト成功 |
 | `npm run build` | ローカル・Vercelの本番ビルドとも成功 |
 | `npm run secret-scan` | 検出0件。ソース・設定・ドキュメント・lockfileを検査 |
-| Gitleaks 8.30.1 | 公開対象の作業ツリーで検出0件。公式配布物のSHA-256も照合 |
+| Gitleaks 8.30.1 | 公開対象の作業ツリー・Git履歴で検出0件。公式配布物のSHA-256も照合 |
 | `npm audit` | インストールした全依存で脆弱性0件（実行時点） |
 | GitHub Secret Scanning / Push Protection | 公開リポジトリで有効化済み |
-| GitHub Actions | 実行結果を最終公開時に追記 |
+| GitHub Actions | [Quality and security #33072479867](https://github.com/shunsoco-stack/regret-button/actions/runs/33072479867) 成功。Linux / Node.js 24でlint・型検査・157テスト・build・Secret Scan・本番依存監査を実行 |
 
 ### テスト範囲
 
@@ -53,6 +53,12 @@
 ホーム、`manifest.webmanifest`、`favicon.ico`、`icon.svg`、192/512/maskable/apple-touchアイコン、`og.png`、`sw.js`、`robots.txt`、`sitemap.xml`、`/_vercel/insights/script.js`のHTTP 200とContent-Typeを確認しました。
 
 ホームのOG URL、`X-Frame-Options: DENY`、Service Workerの`Cache-Control: no-cache, no-store, must-revalidate`も確認済みです。
+
+Vercel CLIで本番公開しています。GitHubとの自動デプロイ接続はVercel側で拒否されたため未設定です。GitHubでの公開とCIは成功しており、追加更新の公開には下記を使用できます。
+
+```bash
+npx vercel deploy --prod
+```
 
 ## Vercel Analyticsの制約
 
