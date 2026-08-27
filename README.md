@@ -127,23 +127,23 @@ docs/                    検証記録、セキュリティ、ポートフォリ�
 
 ### 1. 初期画面
 
-![初期画面：暗い研究施設を思わせる画面と赤いボタン](public/screenshots/01-initial.png)
+![初期画面：暗い研究施設を思わせる画面と赤いボタン](public/screenshots/01-initial.jpg)
 
 ### 2. 1回押した状態
 
-![1回押した状態：本当に押したんですね](public/screenshots/02-first-press.png)
+![1回押した状態：本当に押したんですね](public/screenshots/02-first-press.jpg)
 
 ### 3. 連打後の状態
 
-![連打後の状態：増えた回数と変化するメッセージ](public/screenshots/03-repeated-press.png)
+![連打後の状態：増えた回数と変化するメッセージ](public/screenshots/03-repeated-press.jpg)
 
 ### 4. 長押しモード
 
-![長押しモード：より深い後悔](public/screenshots/04-deep-regret.png)
+![長押しモード：より深い後悔](public/screenshots/04-deep-regret.jpg)
 
 ### 5. 100回記念演出
 
-![100回記念演出：100回の小さな後悔](public/screenshots/05-milestone-100.png)
+![100回記念演出：100回の小さな後悔](public/screenshots/05-milestone-100.jpg)
 
 ## 関連ドキュメント
 

@@ -79,11 +79,11 @@ URLのquery/hashを除外し、route/pathも`/`に固定しています。任意
 
 | 画面 | ファイル | 状態 |
 | --- | --- | --- |
-| 初期画面 | `public/screenshots/01-initial.png` | 0回 |
-| 1回押した状態 | `public/screenshots/02-first-press.png` | 1回・「本当に押したんですね」 |
-| 連打後 | `public/screenshots/03-repeated-press.png` | 25回 |
-| 長押しモード | `public/screenshots/04-deep-regret.png` | 26回・代替操作で同じモードへ入って撮影 |
-| 100回記念 | `public/screenshots/05-milestone-100.png` | 実際に100回へ到達しダイアログを撮影 |
+| 初期画面 | `public/screenshots/01-initial.jpg` | 0回 |
+| 1回押した状態 | `public/screenshots/02-first-press.jpg` | 1回・「本当に押したんですね」 |
+| 連打後 | `public/screenshots/03-repeated-press.jpg` | 25回 |
+| 長押しモード | `public/screenshots/04-deep-regret.jpg` | 26回・代替操作で同じモードへ入って撮影 |
+| 100回記念 | `public/screenshots/05-milestone-100.jpg` | 実際に100回へ到達しダイアログを撮影 |
 
 最初の4枚はページ全体、5枚目はダイアログが表示されたビューポートです。READMEに5枚とも掲載しています。
 
