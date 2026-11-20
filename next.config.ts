@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
       { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()" },
     ];
     if (process.env.NODE_ENV === "production") {
-      security.push({ key: "Content-Security-Policy", value: "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'" });
+      security.push({ key: "Content-Security-Policy", value: "default-src 'self'; script-src 'self' 'unsafe-inline' https://adm.shinobi.jp https://*.shinobi.jp https://*.cnobi.jp; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.shinobi.jp https://*.cnobi.jp; font-src 'self'; connect-src 'self' https://*.shinobi.jp https://*.cnobi.jp; frame-src https://*.shinobi.jp https://*.cnobi.jp; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'" });
     }
     return [
       { source: "/:path*", headers: security },

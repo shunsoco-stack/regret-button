@@ -175,7 +175,7 @@ export function RegretLab() {
         <div className="privacy-note"><LockKeyhole size={12} /><span>回数と時刻は、このブラウザだけに保存されます。</span></div>
       </main>
 
-      <footer className="site-footer"><span className="mono">DESIGNED TO DO NOTHING.</span><span>役に立たない、を丁寧に。<span className="footer-version mono">v1.0</span></span></footer>
+      <footer className="site-footer"><span className="mono">DESIGNED TO DO NOTHING.</span><span>役に立たない、を丁寧に。<span className="footer-version mono">v1.0</span></span><a href="/privacy">プライバシーポリシー</a></footer>
 
       <SettingsDialog open={dialog === "settings"} onClose={() => setDialog(null)} preferences={record.preferences} onPreference={changePreference} onReset={reset} systemReduced={systemReduced} onDeep={() => { startPress(); press("deep"); }} />
       <Dialog open={dialog === "about"} onClose={() => setDialog(null)} titleId="about-title" label="この実験について" className="about-dialog">
