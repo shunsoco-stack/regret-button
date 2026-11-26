@@ -102,7 +102,7 @@ GitHub Actionsにも検証用のworkflowを用意しています。Secret Scan�
 
 ## 技術と構成
 
-Next.js **16.3.3**（App Router） / React **19.2.8** / TypeScript / Tailwind CSS **4** / Vercel Analytics **2.0.1** / Vitest
+Next.js **16.4.6**（App Router） / React **19.2.8** / TypeScript / Tailwind CSS **4** / Vercel Analytics **2.0.1** / Vitest
 
 ```text
 src/app/                 ページ、メタデータ、manifest、スタイル
