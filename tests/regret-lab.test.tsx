@@ -118,6 +118,7 @@ afterEach(() => {
   vi.useRealTimers();
   vi.restoreAllMocks();
   vi.unstubAllGlobals();
+  vi.unstubAllEnvs();
   for (const key of navigatorProperties) restoreProperty(navigator, key, navigatorDescriptors.get(key));
   restoreProperty(HTMLDialogElement.prototype, "showModal", originalShowModal);
   restoreProperty(HTMLDialogElement.prototype, "close", originalClose);
@@ -343,6 +344,25 @@ describe("analytics preferences", () => {
     await shareFromPage(); // share
     expect(persisted().total).toBe(101);
     expect(writeText).toHaveBeenCalledTimes(1);
+    expect(external.track).not.toHaveBeenCalled();
+  });
+
+  it("sends analytics from a Vercel production build", () => {
+    vi.stubEnv("NODE_ENV", "production");
+    vi.stubEnv("NEXT_PUBLIC_VERCEL_DEPLOYMENT", "1");
+    renderLab();
+    pressMain();
+    expect(external.analyticsRender).toHaveBeenCalled();
+    expect(external.track.mock.calls).toEqual([["button_press", undefined]]);
+  });
+
+  it("skips Vercel Analytics on other production hosts without blocking a press", () => {
+    vi.stubEnv("NODE_ENV", "production");
+    vi.stubEnv("NEXT_PUBLIC_VERCEL_DEPLOYMENT", "0");
+    renderLab();
+    pressMain();
+    expect(screen.getByTestId("total-count").getAttribute("aria-label")).toBe("1回");
+    expect(external.analyticsRender).not.toHaveBeenCalled();
     expect(external.track).not.toHaveBeenCalled();
   });
 

@@ -9,8 +9,16 @@ function isAllowed() {
   return snapshot.ready && snapshot.record.preferences.analytics && navigator.doNotTrack !== "1";
 }
 
+function vercelAnalyticsEnabled() {
+  // Vercel serves /_vercel/insights/script.js. Other production hosts do not,
+  // so skip the script there instead of logging a failed load. Development
+  // and tests keep the existing privacy guard.
+  if (process.env.NODE_ENV !== "production") return true;
+  return process.env.NEXT_PUBLIC_VERCEL_DEPLOYMENT !== "0";
+}
+
 export function trackRegret(event: "button_press" | "long_press" | "share" | "milestone", properties?: { milestone?: number; method?: string }) {
-  if (!isAllowed()) return;
+  if (!isAllowed() || !vercelAnalyticsEnabled()) return;
   try { track(event, properties); } catch { /* Analytics is never required to play. */ }
 }
 
@@ -23,6 +31,7 @@ function beforeSend(event: BeforeSendEvent) {
 
 export function PrivateAnalytics() {
   const { ready, record } = useRegretStore();
+  if (!vercelAnalyticsEnabled()) return null;
   if (!ready || !record.preferences.analytics) return null;
   if (navigator.doNotTrack === "1") return null;
   return <Analytics route="/" path="/" beforeSend={beforeSend} debug={false} />;

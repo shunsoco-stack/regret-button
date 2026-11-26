@@ -1,9 +1,20 @@
 import type { NextConfig } from "next";
 import path from "node:path";
 
+const projectRoot = path.resolve(process.cwd());
+
 const nextConfig: NextConfig = {
+  // Lolipop! Deploy Now runs the traced Node server in .next/standalone.
+  // Vercel continues to deploy with its own Next.js runtime.
+  output: "standalone",
   poweredByHeader: false,
-  turbopack: { root: path.resolve(process.cwd()) },
+  // Keep server.js at .next/standalone/server.js for this repository.
+  outputFileTracingRoot: projectRoot,
+  turbopack: { root: projectRoot },
+  env: {
+    // Inlined at build time. "1" only when Vercel sets VERCEL=1.
+    NEXT_PUBLIC_VERCEL_DEPLOYMENT: process.env.VERCEL === "1" ? "1" : "0",
+  },
   async headers() {
     const security = [
       { key: "X-Content-Type-Options", value: "nosniff" },
